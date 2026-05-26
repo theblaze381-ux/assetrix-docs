@@ -1,6 +1,6 @@
 # Assetrix Kullanım Şartları
 
-**Son güncelleme:** 23 Mayıs 2026
+**Son güncelleme:** 26 Mayıs 2026
 **Geçerlilik tarihi:** Uygulamayı yüklediğiniz tarih
 
 ---
@@ -51,9 +51,8 @@ Assetrix, kişisel finansal portföyünüzü takip etmenizi sağlayan bir mobil 
 
 ## 4. Kullanıcı Hesabı
 
-### 4.1 Hesap Türleri
-- **Anonim Kullanıcı**: Kayıt olmadan Uygulamayı kullanabilirsiniz. Verileriniz anonim bir kimlikle senkronize edilir.
-- **Google ile Bağlı Hesap**: Google hesabınızla giriş yaparak verilerinizi farklı cihazlarda erişilebilir kılabilirsiniz.
+### 4.1 Hesap Türü
+Uygulamayı kullanmak için Google hesabınızla giriş yapmanız gerekir. Verileriniz Google hesabınıza bağlı olarak güvenli bir şekilde saklanır ve farklı cihazlarınız arasında otomatik olarak senkronize edilir.
 
 ### 4.2 Hesap Sorumluluğu
 - Hesap güvenliğiniz sizin sorumluluğunuzdadır
@@ -74,10 +73,11 @@ Uygulamayı kullanmak için **en az 18 yaşında** olmanız gerekir. 18 yaş alt
 - Deneme süresi içinde abonelik satın almazsanız ek bir ücretlendirme yapılmaz
 
 ### 5.2 Abonelik Planları
-| Plan | Yenilenme | Özellikler |
-|---|---|---|
-| Premium Aylık | Her ay otomatik | Tüm Premium özellikler + ayda 120 AI sorgusu |
-| Premium Yıllık | Her yıl otomatik | Aynı + ekonomik fiyat |
+
+| Plan           | Yenilenme        | Özellikler                                                       |
+|----------------|------------------|------------------------------------------------------------------|
+| Premium Aylık  | Her ay otomatik  | Tüm Premium özellikler + makul kullanım kapsamında AI Asistan    |
+| Premium Yıllık | Her yıl otomatik | Aynı + ekonomik fiyat                                            |
 
 Güncel fiyatlar Uygulama içinde gösterilir. Türk kullanıcıları için fiyatlar Google Play tarafından Türk Lirası karşılığı ile gösterilir.
 
@@ -131,10 +131,11 @@ Bu kuralları ihlal eden hesaplar **uyarı verilmeksizin askıya alınabilir vey
 - AI sorguları **Google Gemini** modeli kullanılarak işlenir
 - AI çıktıları **olasılıksal** olup hatalı, eksik veya yanıltıcı olabilir
 - AI'nın sunduğu bilgilere dayalı olarak alacağınız kararlardan **siz sorumlusunuz**
-- AI sorgu sayıları:
+- AI sorgu hakkı:
   - Deneme süresi: toplam 14 sorgu
-  - Premium aylık: 120 sorgu/ay
-- Aylık sorgu hakkı **kullanılmasa bile devretmez** (sonraki aya aktarılmaz)
+  - Premium üyeler: makul kullanım kapsamında AI Asistan'a erişim
+- Sistem kötüye kullanımı (otomatik sorgu, aşırı yük) tespit edilmesi durumunda Şirket günlük veya aylık makul sınırlar uygulayabilir
+- Kullanılmayan sorgu hakkı sonraki döneme aktarılamaz
 
 ---
 
@@ -220,7 +221,7 @@ Değişiklik tarihinden sonra Uygulamayı kullanmaya devam etmeniz, yeni Şartla
 ## 14. Geçerli Hukuk ve Uyuşmazlık Çözümü
 
 ### 14.1 Geçerli Hukuk
-Bu Sözleşme, **Türkiye Cumhuriyeti hukuku** ile birlikte **Birleşik Arap Emirlikleri Federal Hukuku** çerçevesinde yorumlanır.
+Türkiye Cumhuriyeti sınırları içinde ikamet eden tüketiciler için bu Sözleşme **Türkiye Cumhuriyeti hukuku** çerçevesinde yorumlanır. Diğer tüm kullanıcılar için **Birleşik Arap Emirlikleri Federal Hukuku** geçerlidir.
 
 Türk tüketicilerin **6502 sayılı Tüketicinin Korunması Hakkında Kanun** kapsamındaki kazanılmış hakları saklıdır.
 
