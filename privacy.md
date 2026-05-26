@@ -1,6 +1,6 @@
 # Assetrix Gizlilik Politikası
 
-**Son güncelleme:** 23 Mayıs 2026
+**Son güncelleme:** 26 Mayıs 2026
 **Geçerlilik tarihi:** Uygulama yayımlandığı tarih
 
 ---
@@ -22,19 +22,25 @@ Bu politika **6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK)** kapsam
 
 Uygulamayı kullandığınızda aşağıdaki kategorilerde veri işliyoruz:
 
-### 2.1 Anonim Kimlik Bilgisi (Tüm Kullanıcılar)
-- Anonim kullanıcı tanımlayıcısı (UID — sizi şahsen tanımlamaz)
-- Cihaz dili, tema tercihi, para birimi tercihi
-- Uygulama versiyonu
+### 2.1 Hesap Bilgileri (Zorunlu)
 
-### 2.2 Hesap Bilgileri (Yalnızca Google ile Giriş Yaparsanız — İsteğe Bağlı)
+Uygulamayı kullanmak için Google hesabınızla giriş yapmanız gerekir. Google ile giriş yaptığınızda aşağıdaki bilgiler işlenir:
 - E-posta adresi
 - Ad-soyad
 - Google profil fotoğrafı URL'si
+- Firebase kullanıcı kimliği (UID — sizi sistem içinde tanımlayan benzersiz kod)
+- Cihaz dili, tema tercihi, para birimi tercihi
+- Uygulama versiyonu
 
-Google ile giriş yapmadığınız sürece Uygulama tamamen anonim çalışır.
+### 2.2 Cihaz Tanımlayıcısı
+
+- Android SSAID veya iOS IDFV (cihaz başına bir deneme süresi uygulamak için)
+- Bu kimlik cihazınıza özeldir, sizi şahsen tanımlamaz ve fabrika ayarlarına dönüldüğünde sıfırlanır
+- `/devices/{deviceId}` adlı ayrı bir veri tablosunda saklanır
+- Aynı cihazdan birden fazla deneme süresi başlatılmasını engellemek amacıyla kullanılır
 
 ### 2.3 Finansal İçerik (Sizin Girdiğiniz Veri)
+
 Aşağıdaki verileri Uygulamaya **siz girersiniz**:
 - Portföy bilgileri: hisse senedi, kripto para, döviz, emtia pozisyonları
 - Banka hesabı ve nakit bakiyeleri
@@ -46,28 +52,36 @@ Aşağıdaki verileri Uygulamaya **siz girersiniz**:
 Bu veriler **hassas finansal bilgilerdir**. Sizinle ilişkilendirilmiş olarak güvenli sunucularımızda saklanır.
 
 ### 2.4 Yapay Zeka Sorgu Verisi
+
 AI özelliğini kullandığınızda:
 - Portföyünüzün anlık görüntüsü (snapshot)
 - Sorduğunuz soru metni
 - AI'nın cevabı (yalnızca size dönmek için, kayıt edilmez)
 
-AI sorgularınız **kalıcı olarak saklanmaz**. Yalnızca işleme süresince geçici olarak Cloudflare Worker üzerinden Google Gemini API'sine iletilir, cevap döner döner silinir.
+AI sorgularınız sunucularımızda **kalıcı olarak saklanmaz**. Yalnızca işleme süresince geçici olarak Cloudflare Worker üzerinden Google Gemini API'sine iletilir, cevap döner döner silinir. Google Gemini API tarafının kötüye kullanım izleme amacıyla 24 saate kadar geçici loglama yapabileceğini belirtmek isteriz (Google Gemini Gizlilik Politikası).
 
-### 2.5 Abonelik ve Kullanım Verisi
-- Aylık AI sorgu sayısı (rate limit için)
+### 2.5 Fiyat Sorgu Verisi
+
+Varlıklarınızın güncel fiyatlarını göstermek için Yahoo Finance ve CoinGecko hizmetlerine **anonim** sorgular yapılır. Bu sorgularda yalnızca varlık sembolü (örn. "AAPL", "BTC") gönderilir; kimliğiniz, hesabınız veya portföyünüz iletilmez.
+
+### 2.6 Abonelik ve Kullanım Verisi
+
+- Deneme süresi başlangıç tarihi (cihaz bazlı kilit ile birlikte)
+- Toplam AI sorgu sayısı (rate limit ve kota için)
 - Abonelik durumu (Premium / Trial)
 - Satın alma token'ı (RevenueCat üzerinden)
 
-### 2.6 Toplamadığımız Veriler
+### 2.7 Toplamadığımız Veriler
+
 Aşağıdakileri **kesinlikle toplamıyoruz**:
 - Konum bilgisi (GPS)
 - Reklam tanımlayıcıları (ADID/IDFA)
-- Telefon rehberi
+- Telefon rehberi, mesajlar, e-postalar
 - Fotoğraf galerisi
 - Mikrofon, kamera, sensör verisi
-- Cihaz IMEI veya seri numarası
+- Cihaz IMEI veya telefon numarası
 - Üçüncü taraf analitik verisi (Mixpanel, Amplitude, vb. **kullanmıyoruz**)
-- Kullanım analizi / heatmap
+- Kullanım analizi / heatmap / oturum kayıtları
 
 ---
 
@@ -79,7 +93,7 @@ Verilerinizi yalnızca aşağıdaki amaçlar için işliyoruz:
 2. **Cihazlar arası senkronizasyon**: Birden fazla cihazda aynı veriyi görmeniz
 3. **Yapay zeka analizi**: Portföyünüze ilişkin AI yorumları sunma
 4. **Abonelik yönetimi**: Premium üyeliğin doğrulanması ve takibi
-5. **Güvenlik**: Kötüye kullanım tespiti, rate limiting
+5. **Güvenlik ve kötüye kullanım önleme**: Rate limiting, cihaz başına deneme süresi uygulanması
 6. **Yasal yükümlülükler**: Vergi, ticari kayıt yükümlülükleri
 
 Verilerinizi **hiçbir koşulda reklam amacıyla kullanmaz, üçüncü taraflara satmaz veya kiralamayız**.
@@ -90,8 +104,8 @@ Verilerinizi **hiçbir koşulda reklam amacıyla kullanmaz, üçüncü taraflara
 
 | Veri Türü | Hukuki Sebep |
 |---|---|
-| Anonim kimlik + temel ayarlar | Sözleşmenin ifası |
-| Google hesap bilgisi | Açık rıza |
+| Google hesap bilgisi | Açık rıza + sözleşmenin ifası |
+| Cihaz tanımlayıcısı | Meşru menfaat (kötüye kullanım önleme) |
 | Finansal veri | Sözleşmenin ifası |
 | AI sorgu içeriği | Sözleşmenin ifası |
 | Abonelik verisi | Sözleşmenin ifası, hukuki yükümlülük |
@@ -104,11 +118,13 @@ Hizmetimizi sunmak için aşağıdaki **veri işleyicilerle** çalışırız:
 
 | Hizmet Sağlayıcı | Amaç | Verinin Türü | Sunucu Konumu |
 |---|---|---|---|
-| **Google Firebase** | Kimlik doğrulama + veri senkronizasyonu | UID, e-posta (opsiyonel), tüm portföy verisi | İrlanda (europe-west3) |
+| **Google Firebase** | Kimlik doğrulama + veri senkronizasyonu | UID, e-posta, ad, tüm portföy verisi, cihaz tanımlayıcısı | İrlanda (europe-west3) |
 | **Cloudflare** | API trafiği, rate limiting | Anonim UID, AI sorgu metni | Küresel edge ağı |
 | **Google Gemini API** | Yapay zeka analizi | Portföy anlık görüntüsü, soru metni | ABD / AB |
 | **RevenueCat** | Abonelik yönetimi | Anonim UID, satın alma token'ı | ABD |
 | **Google Play Billing** | Ödeme işlemi | Ödeme bilgisi (bize iletilmez) | Küresel |
+| **Yahoo Finance** | Hisse, döviz fiyat verisi | Sembol sorgusu (anonim, kimliksiz) | ABD |
+| **CoinGecko** | Kripto para fiyat verisi | Coin sorgusu (anonim, kimliksiz) | ABD |
 
 Her hizmet sağlayıcı, kendi gizlilik politikalarına ve veri güvenlik standartlarına tabidir.
 
@@ -119,7 +135,7 @@ Her hizmet sağlayıcı, kendi gizlilik politikalarına ve veri güvenlik standa
 Verileriniz hizmet sağlayıcılarımız aracılığıyla **Türkiye dışına aktarılmaktadır**:
 
 - **AB (İrlanda)**: Firebase europe-west3 bölgesi
-- **ABD**: Gemini API, RevenueCat
+- **ABD**: Gemini API, RevenueCat, Yahoo Finance, CoinGecko
 - **Küresel edge**: Cloudflare
 
 Bu aktarımlar **Uygulamanın çalışması için zorunludur**. Aktarımlarda:
@@ -135,11 +151,11 @@ Uygulamayı kullanmaya başlamanızla bu aktarımlara **açık rıza** vermiş s
 
 | Veri Türü | Saklama Süresi |
 |---|---|
-| Anonim kullanıcı verisi | Hesap silinene kadar veya 2 yıl atıl kalma sonrası |
-| Google ile bağlanan hesap bilgisi | Hesap silinene kadar |
+| Google hesap bilgisi | Hesap silinene kadar |
+| Cihaz tanımlayıcısı | 2 yıl atıl kalma sonrası |
 | Finansal portföy verisi | Hesap silinene kadar |
 | Abonelik ve ödeme kayıtları | Vergi mevzuatı gereği **10 yıl** |
-| AI sorgu metinleri | **Saklanmaz** (anlık işlenir) |
+| AI sorgu metinleri | **Saklanmaz** (anlık işlenir, Gemini tarafı max 24 saat) |
 | Rate limit sayaçları | 30 gün |
 
 Saklama süresi sona erdiğinde veriler kalıcı olarak silinir veya anonimleştirilir.
@@ -171,10 +187,11 @@ Talepleriniz **30 gün içinde** ücretsiz olarak yanıtlanır.
 Verilerinizin güvenliği için aldığımız teknik ve idari tedbirler:
 
 - **Tüm trafik HTTPS/TLS şifrelemesi** ile iletilir
-- **Firestore Security Rules**: `/users/{uid}/` yoluna yalnızca kendi UID'sine sahip kullanıcı erişebilir
+- **Firestore Security Rules**: `/users/{uid}/` yoluna yalnızca kendi UID'sine sahip kullanıcı erişebilir; cihaz tanımlayıcısı bilgileri ise yalnızca giriş yapmış kullanıcılara açıktır
 - **API anahtarları sunucu tarafında** (Cloudflare Worker secret olarak şifrelenmiş) saklanır, asla uygulamaya gömülmez
 - **App Lock** özelliği ile uygulama düzeyinde Face ID/Parmak İzi/PIN koruması
 - **Rate limiting**: kötüye kullanımın önlenmesi için sorgu limiti uygulanır
+- **Anonim erişim engellenmiştir**: Tüm API çağrıları Firebase kimlik doğrulamasından geçer
 - **Düzenli güvenlik incelemeleri** ve güncelleme yamaları
 
 ---
@@ -204,7 +221,9 @@ Hesabınızı ve tüm verilerinizi silmek için iki yol:
 1. **Uygulama içinden**: Ayarlar → Hesap → Hesabımı Sil
 2. **E-posta ile**: assetrixtr@gmail.com adresine "Hesap silme talebi" konulu e-posta göndererek
 
-Hesap silme talebi **7 iş günü içinde** işleme alınır. Yasal saklama yükümlülüğü olan veriler (abonelik kayıtları gibi) ilgili yasal süreler sonunda silinir; diğer tüm veriler derhal kalıcı olarak silinir.
+Hesap silme talebi **anında veya en geç 7 iş günü içinde** işleme alınır. Yasal saklama yükümlülüğü olan veriler (abonelik kayıtları gibi) ilgili yasal süreler sonunda silinir; diğer tüm veriler derhal kalıcı olarak silinir.
+
+**Not**: Hesap silinse bile cihaz tanımlayıcısı kaydı (deneme süresinin kötüye kullanımını engellemek için) 2 yıl boyunca atıl olarak saklanabilir. Bu kayıt kişisel kimliğinizi içermez.
 
 ---
 
